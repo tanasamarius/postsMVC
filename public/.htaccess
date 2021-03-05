@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+  Options -Multiviews
+  RewriteEngine On
+  RewriteBase /public
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>
+
+# you need to change  /mvc/public   to your root for this to work
+# lines 5 and 6 is checking if file exists, if not will run line 7
+# line 7 will run everyting from /mvc/public/index.php
